@@ -11,7 +11,7 @@
     <title>Login</title>
 </head>
 <body>
-    <h1>Area Restrita</h1>
+    <br><h1>Area Restrita</h1><br>
     <?php
     
         if(isset($_SESSION['msg'])){
