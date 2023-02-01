@@ -11,6 +11,10 @@ $sql ="SELECT * FROM Usuario WHERE usuario = '$usuario' && senha = '$senha' LIMI
 $result = mysqli_query($conn, $sql);
 $resultado = mysqli_fetch_assoc($result);    
     
+    if (empty($resultado)){
+        $_SESSION['loginerro'] = "User ou Senha Invalido";
+        header("Location: index.php");
+    }
 
 }else{
     $_SESSION['loginerror'] = "Usuario ou senha invalida";
@@ -19,4 +23,3 @@ $resultado = mysqli_fetch_assoc($result);
 }
        
 ?>
-
