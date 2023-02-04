@@ -14,6 +14,8 @@ $resultado = mysqli_fetch_assoc($result);
     if (empty($resultado)){
         $_SESSION['loginerro'] = "User ou Senha Invalido";
         header("Location: index.php");
+    }elseif(isset($resultado)){
+        header("Location: administrativo.php");
     }
 
 }else{
