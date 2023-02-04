@@ -11,7 +11,7 @@
     <title>Login</title>
 </head>
 <body>
-    <br><h1>Area Restrita</h1><br>
+  
     <?php
     
         if(isset($_SESSION['msg'])){
@@ -21,6 +21,7 @@
     
     ?>
     <form method="POST" action="valida.php">
+        <p><h1>LOGIN</h1></p>
         <label>Usuario</label>
         <input type="text" name="usuario" placeholder="Digite seu usuario"><br><br>
         <label>Senha</label>
