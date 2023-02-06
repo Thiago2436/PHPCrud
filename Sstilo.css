@@ -40,3 +40,17 @@ body {
     cursor: pointer;
   }
   
+  @media (max-width: 767px) {
+    form {
+      padding: 1rem;
+    }
+  
+    label,
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      font-size: 1.2rem;
+      padding: 0.2rem;
+    }
+  }
+  
