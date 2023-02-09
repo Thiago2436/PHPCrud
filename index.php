@@ -11,24 +11,18 @@
     <title>Login</title>
 </head>
 <body>
-    <br><h1>Area Restrita</h1><br>
-    <?php
-    
-        if(isset($_SESSION['msg'])){
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
-        }
-    
-    ?>
-    <form method="POST" action="valida.php">
+      <form method="POST" action="valida.php">
+        <p><h1>LOGIN</h1></p>
         <label>Usuario</label>
         <input type="text" name="usuario" placeholder="Digite seu usuario"><br><br>
         <label>Senha</label>
         <input type="text" name="senha" placeholder="Digite sua Senha"><br><br>
         
         <input type="submit" name="btnLogin" value="Acessar"><br><br>
+
+        <p> Faça seu cadastro <a href="cadastro.php"> CLIQUE AQUI </a> </p>
     </form>  
-    <h1>
+       
     <?php
 
         if(isset($_SESSION['loginErro'])){
