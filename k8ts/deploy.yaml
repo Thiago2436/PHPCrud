@@ -17,6 +17,20 @@ spec:
         image: thiagomartinsemartins/php_crud
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        volumeMounts:
+        - name: php-crud-data
+          mountPath: /data/
+      volumes:
+      - name: php-crud-data
+        persistentVolumeClaim:
+          claimName: php-crud-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -29,7 +43,7 @@ spec:
   - name: http
     port: 80
     targetPort: 80
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -50,6 +64,20 @@ spec:
         image: thiagomartinsemartins/bancodedados_sql
         ports:
         - containerPort: 3306
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        volumeMounts:
+        - name: database-data
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: database-data
+        persistentVolumeClaim:
+          claimName: database-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -62,4 +90,5 @@ spec:
   - name: mysql
     port: 3306
     targetPort: 3306
-  type: ClusterIP
+  type: LoadBalancer
+
