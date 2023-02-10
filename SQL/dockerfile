@@ -1,0 +1,9 @@
+# Use a imagem oficial do MySQL como base
+FROM mysql:8.0
+
+# Copie o script SQL para o container
+COPY script.sql /docker-entrypoint-initdb.d/
+
+# Defina as variáveis de ambiente para configurar o MySQL
+ENV MYSQL_ROOT_PASSWORD=root_password
+ENV MYSQL_DATABASE=MusicLibrary
