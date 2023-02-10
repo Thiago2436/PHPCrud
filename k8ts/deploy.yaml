@@ -4,7 +4,7 @@ metadata:
   name: php-crud-deployment
   namespace: phpsite
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: php-crud-app
@@ -53,7 +53,7 @@ metadata:
   name: database-deployment
   namespace: phpsite
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: database-app
