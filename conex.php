@@ -1,8 +1,8 @@
 <?php 
 
 	$servidor = "localhost";
-	$usuario = "root";
-	$senha = ""; //123456789
+	$usuario = "root";// admin
+	$senha = "123456789"; //123456789
 	$dbname = "MusicLibrary";
 	
 	//Criar a conexao
