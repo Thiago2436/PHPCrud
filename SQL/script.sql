@@ -16,3 +16,8 @@ CREATE TABLE usuarios (
   usuario VARCHAR(255) NOT NULL,
   senha VARCHAR(255) NOT NULL
 );
+
+INSERT INTO MusicLibrary.usuarios (
+(nome, email, usuario, senha)
+VALUES('Thiago', 'thiagomartins.floresal@gmail.com', 'thiago', '123')
+);
