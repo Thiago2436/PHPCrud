@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-crud-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-crud
+  template:
+    metadata:
+      labels:
+        app: php-crud
+    spec:
+      containers:
+        - name: php-crud-container
+          image: thiagomartinsemartins/php_crud
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-crud-service
+spec:
+  selector:
+    app: php-crud
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
