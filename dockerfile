@@ -10,6 +10,13 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     && a2enmod headers \
     && sed -i -e "s/html//" /etc/apache2/sites-available/000-default.conf \
     && echo "DocumentRoot /var/www/html" >> /etc/apache2/sites-available/000-default.conf \
-    && echo "Options -Indexes" >> /etc/apache2/conf-available/docker-php.conf
+    && echo "Options -Indexes" >> /etc/apache2/conf-available/docker-php.conf \
+    && apt-get update && \
+    apt-get install -y libpq-dev 
+    # && /
+    #docker-php-ext-install pdo pdo_pgsql
 
+EXPOSE 80
+
+CMD ["apache2-foreground"]
 
