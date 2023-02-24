@@ -13,7 +13,9 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     && echo "Options -Indexes" >> /etc/apache2/conf-available/docker-php.conf \
     && apt-get update && \
     apt-get install -y libpq-dev  && \
-    docker-php-ext-install pdo pdo_mysql
+    docker-php-ext-install pdo pdo_mysql && \
+    RUN chown -R www-data:www-data /var/www/html && \
+    RUN chmod -R 755 /var/www/html
 
 EXPOSE 80
 
