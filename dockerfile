@@ -12,9 +12,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     && echo "DocumentRoot /var/www/html" >> /etc/apache2/sites-available/000-default.conf \
     && echo "Options -Indexes" >> /etc/apache2/conf-available/docker-php.conf \
     && apt-get update && \
-    apt-get install -y libpq-dev 
-    # && /
-    #docker-php-ext-install pdo pdo_pgsql
+    apt-get install -y libpq-dev  && \
+    docker-php-ext-install pdo pdo_mysql
 
 EXPOSE 80
 

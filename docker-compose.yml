@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: crud_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+  web:
+    image: thiagomartinsemartins/php_crud
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+volumes:
+  db_data:
